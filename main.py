@@ -22,6 +22,9 @@ bot = lightbulb.BotApp(
 async def print_message(e: hikari.MessageCreateEvent):
     if e.is_bot or e.message.channel_id != 1196126493336682608:
         return
+    
+    if not ("http://" in e.message.content or "https://" in e.message.content):
+        return
 
     print(f"Processing message: {e.message.content}")
     
